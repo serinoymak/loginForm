@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="homepage.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="image.png" alt="Emblem" class="emblem">
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-item" id="overview">
+                <!-- <i class="fas fa-home"></i> -->
+                Overview
+            </li>
+            <li class="menu-item" id="dashboard">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </li>
+            <li class="menu-item" id="jobs">
+                <i class="fas fa-briefcase"></i>
+                Jobs
+            </li>
+            <li class="menu-item" id="events">
+                <i class="fas fa-calendar-alt"></i>
+                Events
+            </li>
+            <li class="menu-item" id="users">
+                <i class="fas fa-users"></i>
+                Users
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="menu-item" id="settings">
+                <i class="fas fa-cog"></i>
+                Settings
+            </div>
+            <div class="menu-item" id="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="content">
+
+<!-- ! Header -->
+<div class="header">
+    <div class="left-section">
+        <h1 class="dashboard-text">Dashboard</h1>
+        <p class="welcome-text">Welcome <b>ADMIN!</b></p>
+    </div>
+
+    <div class="right-section">    
+        <div class="search-box">
+            <input type="text" placeholder="Search Personnel">
+            <i class="fas fa-search"></i>
+        </div>
+
+            <div class="profile-info">
+                <div class="admin-profile">ADMIN PROFILE</div>
+                <div class="admin-email">admin@gmail.com</div>
+            </div>
+            <img src="profile-1.png" alt="Admin Profile Photo" class="profile-photo">
+    </div>
+</div>
+
+<div class="gap"></div>
+<!-- ! Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th style="color: gray;">Job Role</th>
+                    <th style="color: gray;">Application Status</th>
+                    <th style="color: gray;">Salary ($)</th>
+                    <th style="color: gray;">Applied on</th>
+                </tr>
+            </thead>
+            <tbody id="userList">
+                <!-- User rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
