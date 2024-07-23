@@ -6,9 +6,9 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="homepage.js"></script>
+    <script type="module" src="userDetail.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 
 
 </head>
@@ -25,6 +25,7 @@
             <li class="menu-item" id="dashboard">
                 <!-- <i class="fas fa-tachometer-alt"></i> -->
                 <i class="fas fa-plus-square"></i>
+
                 Dashboard
             </li>
             <li class="menu-item" id="jobs">
@@ -60,7 +61,7 @@
 <div class="header">
     <div class="left-section">
         <h1 class="dashboard-text">USERS</h1>
-        <p class="welcome-text">Welcome <b>ADMIN!</b></p>
+        <p class="welcome-text">Welcome <b id="welcome-name"></b>!</p>
     </div>
 
     <div class="right-section">    
@@ -78,23 +79,48 @@
 </div>
 
 <div class="gap"></div>
-<!-- ! Table -->
-        <table>
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th style="color: gray;">Job Role</th>
-                    <th style="color: gray;">Application Status</th>
-                    <th style="color: gray;">Salary ($)</th>
-                    <th style="color: gray;">Applied on</th>
-                </tr>
-            </thead>
-            <tbody id="userList">
-                <!-- User rows will be populated here -->
-            </tbody>
-        </table>
+
+<!-- ! User Detail -->
+<div class="container-user-detail">
+
+    <div class="user-image-container">
+        <img src="profile-2.png" alt="User Profile Photo" class="user-image">
+    </div>
+
+    <div class="user-details">
+
+    <div class="detail-row">
+        <label for="fullName" class="detail-label">Name</label>
+        <input type="text" id="fullName" class="detail-input" disabled>
+    </div>
+
+    <div class="detail-row">
+        <label for="email" class="detail-label">Email</label>
+        <input type="text" id="email" class="detail-input" disabled>
+    </div>
+
+    <div class="detail-row">
+        <label for="password" class="detail-label">Password</label>
+        <input type="password" id="password" class="detail-input" disabled>
+    </div>
+
+    <div class="detail-row">
+        <label for="firstName" class="detail-label">Username</label>
+        <input type="text" id="firstName" class="detail-input" disabled>
+    </div>
+
+    <div class="detail-row-description">
+        <label for="description" class="detail-label">Description</label>
+        <textarea id="description" class="detail-textarea"></textarea>
+    </div>
+
+    <div class="edit-button">
+        <button>Edit</button>
+    </div>
+
+</div>
+
+</div>
     </div>
 </body>
 </html>

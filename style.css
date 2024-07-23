@@ -13,6 +13,7 @@ body {
     margin: 0;
 }
 
+
 .sidebar {
     width: 16.6667%;
     background-color: white;
@@ -39,6 +40,8 @@ body {
 }
 
 .menu-item {
+    font-family: 'Sanchez', serif;
+    font-size: 16px;
     margin-left: 50px;
     color: black;
     display: flex;
@@ -46,15 +49,22 @@ body {
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: background-color 0.3s, border-radius 0.3s;
+    height: 44px;
+
 }
 
+/* .menu-item .fa {
+    width: 18px;
+    height: 20px;
+} */
 .menu-item i {
     margin-right: 1rem;
 }
 
 .menu-item:hover, .menu-item.selected {
     background-color: #3683DA;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: white;
 }
 
 .sidebar-footer {
@@ -66,7 +76,7 @@ body {
     width: 83.3333%;
     padding: 2rem;
     overflow-y: auto;
-    margin-left: 5px; /* 5px sol boşluk */
+    margin-left: 5px;
 }
 
 .header {
@@ -185,9 +195,42 @@ th, td {
     padding: 0.75rem;
     text-align: left;
     border-bottom: 1px solid #ddd;
+    height: 72px;
 }
 
 th {
     background-color: #f4f4f4;
     color: #333;
 }
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    display: inline-block;
+    width: 32px; /* Yuvarlak ikonun genişliği */
+    height: 32px; /* Yuvarlak ikonun yüksekliği */
+    border-radius: 50%; /* Yuvarlak yapmak için */
+    background-color: #3683DA; /* Arka plan rengi */
+    color: white; /* İkonun rengi */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px; /* İkon ile isim arasında boşluk */
+    margin-left: 8px; /* İkon ile isim arasında boşluk */
+}
+
+.user-icon i {
+    font-size: 14px; /* İkonun boyutu */
+}
+
+.user-row {
+    cursor: pointer;
+}
+
+
+
+
+

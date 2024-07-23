@@ -17,11 +17,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore(app);
 
-
-// onAuthStateChanged, kullanıcının oturum açıp açmadığını kontrol eder. Kullanıcı oturum açmışsa (if (user)), 
-// kullanıcının UID'sini (user.uid) alır ve bu UID ile "users" koleksiyonundaki ilgili kullanıcı belgesini 
-// (doc(db, "users", loggedInUserId)) alır. getDoc ile belgeyi alır ve belge varsa (if (docSnap.exists())), kullanıcı 
-// verilerini (userData) alır.
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const loggedInUserId = user.uid;
@@ -33,32 +28,39 @@ onAuthStateChanged(auth, async (user) => {
             // DOM elemanları için `innerText` güncelleme işlemi, gerekli değilse kaldırılabilir.
         }
 
-// getDocs ile "users" koleksiyonundaki tüm kullanıcı belgelerini alır. forEach döngüsü ile her kullanıcı 
-// belgesini işler ve tablo satırları (<tr>) oluşturur. Bu satırlar, kullanıcıların firstName, lastName, 
-// email ve status bilgilerini içerir. Eğer kullanıcı oturum açmamışsa (else), kullanıcıyı login.html 
-// sayfasına yönlendirir.
         const usersSnapshot = await getDocs(collection(db, "users"));
         const userListElement = document.getElementById('userList');
 
         usersSnapshot.forEach((doc) => {
             const user = doc.data();
-            const profilePicURL = user.profilePic || 'default-profile-pic.png';
             const tr = document.createElement('tr');
             tr.innerHTML = `
-                <td><strong>${user.firstName}</td>
+                <td>
+                    <div class="user-info" onclick="goToUserDetail('${doc.id}')">
+                        <div class="user-icon">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                        <strong>${user.firstName}</strong>
+                    </div>
+                </td>
                 <td><strong>${user.lastName}</td>
                 <td style="font-size: 12px;"><strong>${user.email}</td>
                 <td style="color: gray; font-size: 12px;"><strong>${user.jobRole || ''}</td>
                 <td style="color: gray; font-size: 12px;"><strong>${user.status || ''}</td>
                 <td style="color: gray;"><strong>${user.salary || ''}</td>
                 <td style="color: gray; font-size: 12px;"><strong>${user.appliedOn || ''}</td>
-                `;
+            `;
             userListElement.appendChild(tr);
         });
     } else {
         window.location.href = "login.html";
     }
 });
+
+// Kullanıcı detay sayfasına yönlendirme işlemi
+window.goToUserDetail = function(userId) {
+    window.location.href = `userDetail.html?userId=${userId}`;
+}
 
 // Bu fonksiyon, belirli bir kullanıcının açıklama (description) alanını güncellemek için kullanılır. userId ile 
 // kullanıcı belgesine referans oluşturur (doc(db, "users", userId)) ve updateDoc ile açıklama alanını günceller. 
@@ -83,4 +85,3 @@ document.getElementById('logout').addEventListener('click', () => {
         console.error("Error signing out:", error);
     });
 });
-

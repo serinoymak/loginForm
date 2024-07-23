@@ -11,7 +11,8 @@ const firebaseConfig = {
   projectId: "login-form-e8b1d",
   storageBucket: "login-form-e8b1d.appspot.com",
   messagingSenderId: "1041535815651",
-  appId: "1:1041535815651:web:000757fa2de6eca161dad6"
+    appId: "1:1041535815651:web:000757fa2de6eca161dad6"
+
 };
 
 // Firebase uygulamasını başlatmak
